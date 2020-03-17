@@ -1,0 +1,31 @@
+# colored man output
+# from http://linuxtidbits.wordpress.com/2009/03/23/less-colors-for-man-pages/
+set -x LESS_TERMCAP_mb \e'[01;31m'       # begin blinking
+set -x LESS_TERMCAP_md \e'[01;38;5;74m'  # begin bold
+set -x LESS_TERMCAP_me \e'[0m'           # end mode
+set -x LESS_TERMCAP_se \e'[0m'           # end standout-mode
+set -x LESS_TERMCAP_so \e'[38;5;246m'    # begin standout-mode - info box
+set -x LESS_TERMCAP_ue \e'[0m'           # end underline
+set -x LESS_TERMCAP_us \e'[04;38;5;146m' # begin underline
+
+# my environment variables
+set -x VIMINIT 'source ~/.vim/.vimrc'
+set -gx PATH ~/.local/bin $PATH 
+
+# my abbreviations
+abbr -a l ls
+abbr -a ll 'ls -l'
+abbr -a lla 'ls -lAh'
+abbr -a yy yay
+
+# my syntax highlighting
+set -x fish_color_command normal --bold
+set -x fish_color_error red
+set -x fish_color_param normal
+set -x fish_color_search_match --background=white
+set -x fish_color_quote bryellow
+set -x fish_color_end brcyan
+set -x fish_color_operator brcyan
+
+function fish_greeting # TODO
+end
