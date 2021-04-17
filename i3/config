@@ -9,7 +9,7 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod4
+set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -122,10 +122,10 @@ set $ws10 10
 # switch to workspace
 bindsym $mod+1 workspace web
 bindsym $mod+2 workspace dev
-bindsym $mod+3 workspace music
-bindsym $mod+4 workspace a
-bindsym $mod+5 workspace b
-bindsym $mod+6 workspace c
+bindsym $mod+3 workspace a
+bindsym $mod+4 workspace b
+bindsym $mod+5 workspace c
+bindsym $mod+6 workspace d
 bindsym $mod+7 workspace number $ws7
 bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
@@ -134,10 +134,10 @@ bindsym $mod+0 workspace number $ws10
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace web
 bindsym $mod+Shift+2 move container to workspace dev
-bindsym $mod+Shift+3 move container to workspace music
-bindsym $mod+Shift+4 move container to workspace a
-bindsym $mod+Shift+5 move container to workspace b
-bindsym $mod+Shift+6 move container to workspace c
+bindsym $mod+Shift+3 move container to workspace a
+bindsym $mod+Shift+4 move container to workspace b
+bindsym $mod+Shift+5 move container to workspace c
+bindsym $mod+Shift+6 move container to workspace d
 bindsym $mod+Shift+7 move container to workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
@@ -189,7 +189,7 @@ new_window pixel 0
 # shutdown management
 # https://wiki.archlinux.org/index.php/i3#Shutdown.2C_reboot.2C_lock_screen
 
-set $Locker i3lock -i ~/stuff/wallpapers/kaguya-sama.png && sleep 1
+set $Locker i3lock -i ~/Documents/wallpapers/current-lock-screen.png && sleep 1
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
@@ -208,10 +208,10 @@ mode "$mode_system" {
 bindsym $mod+Delete mode "$mode_system"
 
 # firefox on win + f
-bindsym $mod+f exec --no-startup-id firefox
+bindsym $mod+f exec --no-startup-id firefox-developer-edition
 
 # print screen
-bindsym Print exec --no-startup-id scrot ~/stuff/screenshots/%b%d_%H:%M:%S.png
+bindsym Print exec --no-startup-id scrot ~/Documents/screenshots/%b%d_%H:%M:%S.png
 
 # start polybar
 exec_always --no-startup-id ~/.config/polybar/launch.sh
