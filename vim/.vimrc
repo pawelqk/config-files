@@ -20,9 +20,6 @@ Plugin 'ayu-theme/ayu-vim'
 " Completer
 Plugin 'Valloric/YouCompleteMe'
 
-" change to repo root when searching
-Plugin 'airblade/vim-rooter'
-
 " fzf for searching
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'
@@ -91,10 +88,16 @@ let g:airline_theme='onehalfdark'
 let g:ale_linters = {
 \   'javascript': ['eslint'],
 \   'javascriptreact': ['eslint'],
+\   'python': ['black']
 \}
 
 let g:ale_linters_explicit = 1
 
+let g:ale_fixers = {
+\   'python': ['black']
+\}
+
+let g:ale_fix_on_save = 1
 
 """"""""""""""""""""""""""""""""""""""""""""" ycm config 
 " blacklist c/cpp files:
@@ -234,7 +237,7 @@ set relativenumber
 
 
 """"""""""""""""""""""""""""""""""""""""""""" fzf config
-let g:fzf_layout = { 'down': '~20%' }
+let g:fzf_layout = { 'down': '~15%' }
 let $FZF_DEFAULT_COMMAND = 'rg --files' " using ripgrep
 noremap <leader>s :Rg<CR>
 if executable('rg')
@@ -271,8 +274,19 @@ set undofile
 nnoremap <C-n> :NERDTreeToggle %<CR>
 
 let g:NERDTreeWinSize=50
+let NERDTreeIgnore=['\.cmake$']
 
 
 """"""""""""""""""""""""""""""""""""""""""""" clang-format config
 let g:clang_format#detect_style_file=1
 let g:clang_format#auto_format=1
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""" searching config
+" centered search
+nnoremap <silent> n nzz
+nnoremap <silent> N Nzz
+nnoremap <silent> * *zz
+nnoremap <silent> # #zz
+nnoremap <silent> g* g*zz
