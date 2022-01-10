@@ -22,10 +22,15 @@ abbr -a yy yay
 set -x fish_color_command normal --bold
 set -x fish_color_error red
 set -x fish_color_param normal
-set -x fish_color_search_match --background=white
+set -x fish_color_search_match --background='007F3B' # arbitrarily chosen green
 set -x fish_color_quote bryellow
 set -x fish_color_end brcyan
 set -x fish_color_operator brcyan
 
 function fish_greeting # TODO
+end
+
+set WORKCONFIG ~/.config/fish/functions/work_config.fish
+if test -e "$WORKCONFIG"
+    source "$WORKCONFIG"
 end

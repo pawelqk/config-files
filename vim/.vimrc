@@ -17,7 +17,7 @@ Plugin 'vim-airline/vim-airline-themes'
 " Theme
 Plugin 'ayu-theme/ayu-vim'
 
-" Completer
+" C++ Completer
 Plugin 'Valloric/YouCompleteMe'
 
 " fzf for searching
@@ -102,13 +102,20 @@ let g:ale_fix_on_save = 1
 """"""""""""""""""""""""""""""""""""""""""""" ycm config 
 " blacklist c/cpp files:
 "let g:ycm_filetype_blacklist = {'c': 1, 'h': 1, 'cpp': 1}
+"
 " disabling preview window:
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_show_diagnostics_ui = 1
 set completeopt-=preview
 
+" for hovering box to appear later
+set updatetime=5000
+
 " clang_complete stuff:
 let g:clang_library_path='/usr/lib/llvm-3.8/lib/'
+
+" config path
+let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 
 
 """"""""""""""""""""""""""""""""""""""""""""" tags config
@@ -213,7 +220,7 @@ inoremap <A-Right> <c-i>
 "inoremap <expr><CR> (pumvisible()?(empty(v:completed_item)?"\<CR>\<CR>":"\<C-y>"):"\<CR>")
 
 " fzf hotkeys:
-map <C-k> :Files<CR>
+map <C-p> :Files<CR>
 nmap <leader>; :Buffers<CR>
 
 " paste mode on F2
@@ -290,3 +297,14 @@ nnoremap <silent> N Nzz
 nnoremap <silent> * *zz
 nnoremap <silent> # #zz
 nnoremap <silent> g* g*zz
+
+
+""""""""""""""""""""""""""""""""""""""""""""" WSL related config
+" WSL yank support
+let s:clip = '/mnt/c/Windows/System32/clip.exe' " or any mount point of Windows FS from WSL side
+if executable(s:clip)
+    augroup WSLYank
+        autocmd!
+        autocmd TextYankPost * if v:event.operator ==# 'y' | call system(s:clip, @0) | endif
+    augroup END
+endif
