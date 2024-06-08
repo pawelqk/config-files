@@ -10,12 +10,12 @@ call vundle#begin()
 " Plugins
 Plugin 'VundleVim/Vundle.vim'
 
+" Theme
+Plugin 'chriskempson/base16-vim'
+
 " nice bar below
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-
-" Theme
-Plugin 'ayu-theme/ayu-vim'
 
 " C++ Completer
 Plugin 'Valloric/YouCompleteMe'
@@ -81,7 +81,7 @@ let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 
 " theme
-let g:airline_theme='onehalfdark'
+let g:airline_theme='base16_gruvbox_dark_hard'
 
 
 """"""""""""""""""""""""""""""""""""""""""""" ale config 
@@ -184,15 +184,13 @@ set shiftwidth=4
 set expandtab
 
 
-""""""""""""""""""""""""""""""""""""""""""""" ayu config (color theme)
-colorscheme ayu
+""""""""""""""""""""""""""""""""""""""""""""" color theme
+colorscheme base16-gruvbox-dark-medium
 if exists('+termguicolors')
   let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
   let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
   set termguicolors
 endif
-let g:airline_theme='ayu'
-let ayucolor="mirage"
 
 syntax on
 set background=dark
