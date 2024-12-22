@@ -1,15 +1,12 @@
+[general]
 import = [
-    "~/.config/alacritty/themes/themes/gruvbox_dark.toml"
+    "~/.config/alacritty/themes/themes/ayu_mirage.toml"
 ]
-
 [env]
 TERM = "xterm-256color"
 
 [font]
-size = 10.0
-
-[shell]
-program = "/usr/bin/tmux"
+size = 11.5
 
 [window]
 decorations = "none"

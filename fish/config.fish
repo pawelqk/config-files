@@ -9,14 +9,17 @@ set -x LESS_TERMCAP_ue \e'[0m'           # end underline
 set -x LESS_TERMCAP_us \e'[04;38;5;146m' # begin underline
 
 # my environment variables
-set -x VIMINIT 'source ~/.vim/.vimrc'
 set -gx PATH ~/.local/bin $PATH 
+set -gx FZF_DEFAULT_COMMAND 'fd --type file --follow'
+set -gx FZF_CTRL_T_COMMAND 'fd --type file --follow'
+set -gx FZF_DEFAULT_OPTS '--height 20%'
 
 # my abbreviations
 abbr -a l ls
 abbr -a ll 'ls -l'
 abbr -a lla 'ls -lAh'
 abbr -a yy yay
+abbr -a vim nvim
 
 # my syntax highlighting
 set -x fish_color_command normal --bold
