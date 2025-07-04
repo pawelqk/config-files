@@ -1,10 +1,10 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-vim.g.nvim_tree_respect_buf_cwd = 1,
-
--- always set leader first
-vim.keymap.set("n", "<Space>", "<Nop>", { silent = true })
+vim.g.nvim_tree_respect_buf_cwd =
+	1,
+	-- always set leader first
+	vim.keymap.set("n", "<Space>", "<Nop>", { silent = true })
 vim.g.mapleader = " "
 
 -- keep more context on screen while scrolling
@@ -39,7 +39,7 @@ vim.opt.wildignore = ".hg,.svn,*~,*.png,*.jpg,*.gif,*.min.js,*.swp,*.o,vendor,di
 vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4
 vim.opt.tabstop = 4
-vim.opt.expandtab = false
+vim.opt.expandtab = true
 
 -- case-insensitive search/replace
 vim.opt.ignorecase = true
@@ -108,6 +108,11 @@ vim.keymap.set("n", "k", "gk")
 
 -- split current window
 vim.keymap.set("n", "<leader>\\", ":vsp<cr>")
+
+-- diagnostics mapping
+vim.keymap.set("n", "]g", vim.diagnostic.goto_next)
+vim.keymap.set("n", "[g", vim.diagnostic.goto_prev)
+vim.keymap.set("n", "<S-p>", vim.diagnostic.open_float)
 
 -------------------------------------------------------------------------------
 --
@@ -263,12 +268,12 @@ require("lazy").setup({
 		end,
 	},
 	-- auto-cd to root of git project
---	{
---		"notjedi/nvim-rooter.lua",
---		config = function()
---			require("nvim-rooter").setup()
---		end,
---	},
+	--	{
+	--		"notjedi/nvim-rooter.lua",
+	--		config = function()
+	--			require("nvim-rooter").setup()
+	--		end,
+	--	},
 	-- fzf
 	{
 		"junegunn/fzf.vim",
