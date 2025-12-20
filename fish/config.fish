@@ -15,9 +15,10 @@ set -gx FZF_CTRL_T_COMMAND 'fd --type file --follow'
 set -gx FZF_DEFAULT_OPTS '--height 20%'
 
 # my abbreviations
-abbr -a l ls
-abbr -a ll 'ls -l'
-abbr -a lla 'ls -lAh'
+abbr -a l eza
+abbr -a ls eza
+abbr -a ll 'eza -l'
+abbr -a lla 'eza -lAh'
 abbr -a yy yay
 abbr -a vim nvim
 
