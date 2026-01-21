@@ -104,12 +104,12 @@ vim.keymap.set("i", "<right>", "<nop>")
 
 -- make j and k move by visual line, not actual line, when text is soft-wrapped
 vim.keymap.set("n", "j", "gj")
-vim.keymap.set("n", "k", "gk")
+vim.keymap.set("n", "k", "gk" )
 
 -- split current window
 vim.keymap.set("n", "<leader>\\", ":vsp<cr>")
 
--- diagnostics mapping
+-- diagnostics
 vim.keymap.set("n", "]g", vim.diagnostic.goto_next)
 vim.keymap.set("n", "[g", vim.diagnostic.goto_prev)
 vim.keymap.set("n", "<S-p>", vim.diagnostic.open_float)
@@ -177,7 +177,8 @@ require("lazy").setup({
 		lazy = false, -- load at start
 		priority = 1000, -- load first
 		config = function()
-			vim.cmd([[colorscheme base16-ayu-dark]])
+			vim.cmd([[colorscheme base16-windows-95]])
+			--vim.cmd([[colorscheme base24-ayu-dark]])
 			vim.o.background = "dark"
 			-- Make comments more prominent -- they are important.
 			local bools = vim.api.nvim_get_hl(0, { name = "Boolean" })
@@ -189,6 +190,10 @@ require("lazy").setup({
 				"LspSignatureActiveParameter",
 				{ fg = marked.fg, bg = marked.bg, ctermfg = marked.ctermfg, ctermbg = marked.ctermbg, bold = true }
 			)
+            -- Make line numbers also more visible
+            vim.api.nvim_set_hl(0, 'LineNrAbove', { fg='gray', bold=true })
+            vim.api.nvim_set_hl(0, 'LineNr', { fg='white', bold=true })
+            vim.api.nvim_set_hl(0, 'LineNrBelow', { fg='gray', bold=true })
 		end,
 	},
 	{
