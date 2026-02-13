@@ -34,6 +34,10 @@ set -x fish_color_operator brcyan
 function fish_greeting # TODO
 end
 
+# Standard behavior of alt-backspace instead of weird stuff
+# https://github.com/fish-shell/fish-shell/issues/10926
+bind alt-backspace backward-kill-word
+
 set WORKCONFIG ~/.config/fish/functions/work_config.fish
 if test -e "$WORKCONFIG"
     source "$WORKCONFIG"
